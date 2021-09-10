@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+
+def main():
+    #Welcome Message
+    print("Welcome to the Population Program")
+    print("===========================")
+
+    choice = "y"
+    while choice.lower() == "y":
+
+        try:
+        #set variables 
+            organisms = int(input("Please enter the number of organisms: "))
+            #validate
+            if organisms<0:
+                print("You must enter a positive number for number of organisms")
+                continue
+
+            daily_increase = float(input("Please enter the daily increase percent: "))
+            #validate
+            if daily_increase<0 or daily_increase>1:
+                print("You must enter a percent between 0.00 and 1.00")
+                continue
+
+            days = int(input("Please enter number of days to multiply: "))
+            #validate
+            if days>365 or days<0:
+                print("You must enter a positive day total less than or equal to 365")
+                continue
+
+        except:
+            print("You must enter valid numeric data for this application")
+            continue
+
+        #Calculations and print the outputs
+        print("DAY\t\t POPULATION")
+        for i in range(days):
+            print(i+1,"\t\t",organisms)
+            increase = (organisms*daily_increase) + organisms
+            organisms = round(increase,6)
+
+        #should we continue or leave?
+        choice = input("Continue (y/n)?: ")
+        print() 
+    print("Bye!")
+
+if __name__ == "__main__":
+    main()
