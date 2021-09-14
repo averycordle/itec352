@@ -1,0 +1,26 @@
+"""
+def calc_tax(amount, tax_rate):
+    tax = amount * tax_rate
+    return tax
+
+def main():
+    tax = calc_tax(85.0, .05)
+    print("Tax: ", tax)
+
+if __name__ == "__main__":
+    main()
+"""
+
+#global example of lines 2-11
+tax = 0.0
+
+def calc_tax(amount, tax_rate):
+    global tax
+    tax = amount * tax_rate
+
+def main():
+    calc_tax(85.0, .05)
+    print("Tax: ", tax)
+
+if __name__ == "__main__":
+    main()
